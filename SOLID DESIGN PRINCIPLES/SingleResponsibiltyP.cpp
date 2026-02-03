@@ -65,7 +65,7 @@ int main(){
     Product* p5 = new Product("Uppers",2000);
     ShopingCart* s;
     s->addProduct(p1);
-    s->addProduct(p2)
+    s->addProduct(p2);
     s->addProduct(p3);
     s->addProduct(p4);
     s->addProduct(p5);
