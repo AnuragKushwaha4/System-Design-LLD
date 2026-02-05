@@ -63,7 +63,7 @@ int main(){
     Product* p3 = new Product("Pants",1000);
     Product* p4 = new Product("Lowers",900);
     Product* p5 = new Product("Uppers",2000);
-    ShopingCart* s;
+    ShopingCart* s=new ShopingCart();
     s->addProduct(p1);
     s->addProduct(p2);
     s->addProduct(p3);
@@ -75,6 +75,11 @@ int main(){
     CartDatabase* db = new CartDatabase(s);
     db->StoreToDB();
 
-
+    delete p1;
+    delete p2;
+    delete c;
+    delete db;
+    delete s;
+    return 0;
 
 }

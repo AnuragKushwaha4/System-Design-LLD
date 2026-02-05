@@ -78,3 +78,30 @@ class SaveToMongoDB : public DBPersistance{
          cout<<"Data is Stored in Mongo Database"<<endl;
     }
 };
+
+int main(){
+    Product* p1 = new Product("Shoes",5000);
+    Product* p2 = new Product("Shirts",3000);
+    Product* p3 = new Product("Pants",1000);
+    Product* p4 = new Product("Lowers",900);
+    Product* p5 = new Product("Uppers",2000);
+    ShoppingCart* s = new ShoppingCart();
+    s->addProduct(p1);
+    s->addProduct(p2);
+    s->addProduct(p3);
+    s->addProduct(p4);
+    s->addProduct(p5);
+    cout<<s->CalculateTotalPrice()<<endl;
+    CartInvoice* c=new CartInvoice(s);
+    c->PrintInvoice();
+    DBPersistance* d1 = new SaveToFile();
+    DBPersistance* d2=new SaveToMongoDB();
+    DBPersistance* d3=new SaveToSQLDB();
+    d1->Save();
+    d2->Save();
+    d3->Save();
+    return 0;
+
+
+
+}
