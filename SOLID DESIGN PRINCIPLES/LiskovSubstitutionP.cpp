@@ -8,6 +8,8 @@ must override the base class..
 To handle this problem we create multiple Abstract class with different functionality and handle every
 Condition in each class independently.
 */
+#include<iostream>
+using namespace std;
 
 class WithdrawableAccount{
     public:
@@ -15,5 +17,46 @@ class WithdrawableAccount{
     virtual void Diposit()=0;
 };
 
-clas
+class NonWithdrawableAccount{
+    public:
+    virtual void Diposit()=0;
+};
+
+class savingAccount : public WithdrawableAccount{
+    void Withdrawl(){
+        cout<<"Money Withdrawl from Saving account"<<endl;
+    }
+    void Diposit(){
+        cout<<"Money Diposited in Saving account"<<endl;
+    }
+};
+
+class currentAccount : public WithdrawableAccount{
+    void Withdrawl(){
+        cout<<"Money Withdrawl from Current account"<<endl;
+    }
+    void Diposit(){
+        cout<<"Money Diposited in Current account"<<endl;
+    }
+};
+
+class fixedAccount : public NonWithdrawableAccount{
+    void Diposit(){
+        cout<<"Money Diposited in Fixed account"<<endl;
+    }
+};
+
+int main(){
+    WithdrawableAccount* acc1 = new savingAccount();
+    acc1->Diposit();
+    acc1->Withdrawl();
+
+    WithdrawableAccount* acc2 = new currentAccount();
+    acc2->Diposit();
+    acc2->Withdrawl();
+
+    NonWithdrawableAccount* acc3 = new fixedAccount();
+    acc3->Diposit();
+    return 0;
+}
 
