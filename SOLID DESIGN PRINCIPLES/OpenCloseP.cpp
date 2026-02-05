@@ -10,3 +10,71 @@
 #include<iostream>
 #include<vector>
 using namespace std;
+
+class Product{
+    public:
+    string name;
+    double prize;
+    Product(string name,double prize){
+        this->name = name;
+        this->prize = prize;
+    }
+};
+
+class ShoppingCart{
+    public:
+    vector<Product*> products;
+    void addProduct(Product* p){
+        this->products.push_back(p);
+    }
+
+    double CalculateTotalPrice(){
+        double totalprice=0;
+        for(auto i:this->products){
+            totalprice+=i->prize;
+        }
+        return totalprice;
+    }
+};
+
+class CartInvoice{
+    public:
+    ShoppingCart* s;
+    CartInvoice(ShoppingCart* s){
+        this->s=s;
+    }
+    void PrintInvoice(){
+        for(auto i:this->s->products){
+            cout<<"The Product name: "<<i->name<<" and its prize is: "<<i->prize<<endl;
+        }
+        cout<<"Total Prize-------->"<<this->s->CalculateTotalPrice()<<endl;
+
+    }
+};
+
+class DBPersistance{
+    public:
+    virtual void Save()=0;
+};
+
+class SaveToSQLDB : public DBPersistance{
+
+    public:
+    void Save(){
+         cout<<"Data is Stored in SQL Database"<<endl;
+    }
+};
+class SaveToFile : public DBPersistance{
+
+    public:
+    void Save(){
+         cout<<"Data is Stored in txt file"<<endl;
+    }
+};
+class SaveToMongoDB : public DBPersistance{
+
+    public:
+    void Save(){
+         cout<<"Data is Stored in Mongo Database"<<endl;
+    }
+};
