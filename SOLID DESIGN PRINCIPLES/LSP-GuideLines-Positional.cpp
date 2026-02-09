@@ -35,6 +35,46 @@ class Child:public Parent{
         cout<<p<<" in child"<<endl;
     }
 };
+
+
+
+/*
+2nd 
+similar to this we have :
+Return type rule that states that the return type of the child class overriding function must be
+same or belongs to narrower class than the parent*/
+
+
+class Animal{
+    public:
+    //Have some functionality...
+};
+
+class Dog: public Animal{
+    public:
+    //Have some functionality...
+};
+
+class P{
+    public:
+    virtual Animal* random(){
+        Animal* a1 = new Animal();
+        return a1;
+    }
+};
+class C:public P{
+    public:
+    Dog* random() override{
+        Dog* d1 = new Dog();
+
+        return d1;
+    }
+};
+
+
+/*Similary the last Signature rule is Exception handling rule is same as a return types rule
+if their is a function in parent class return an error so the function overriding in child class 
+should have same error return or the error belong to narrower class*/
 int main(){
     Parent* p1 = new Parent();
     Parent* c1 = new Parent();
@@ -43,5 +83,10 @@ int main(){
     p2->classfunction(c1);
     p1->print("Hello");
     p2->print("Helllo");
+
+
+
+
+
     return 0;
 }
