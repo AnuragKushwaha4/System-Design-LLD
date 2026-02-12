@@ -64,5 +64,20 @@ class Cube3D:public Shape3D{
 
 
 int main(){
+
+    Shape* s = new Square();
+    s->area();
+   // s->volume();
+
+    Shape* c = new Cube();
+    c->area();
+    c->volume();
+
+    Shape2D* s1 = new Square2D();
+    s1->area();
+
+    Shape3D* c1 = new Cube3D();
+    c1->area();
+    c1->volume();
     return 0;
 }
