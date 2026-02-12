@@ -61,3 +61,8 @@ class Cube3D:public Shape3D{
         cout<<"The Volume of cube is is size*size*size"<<endl;
     }
 };
+
+
+int main(){
+    return 0;
+}
