@@ -50,4 +50,5 @@ No proper use of SOLID Design Principle.
 As Voilating SRP and OCP because when we try to add new functionality into it its leads to change in 
 parent class implementation and it is performing more than one functionality thus it is also voilating 
 SRP.
+Not Scalable
 */
