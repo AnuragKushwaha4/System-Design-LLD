@@ -6,4 +6,4 @@ S-->Single Responsibility Principle
 O-->Open Close Principle
 L-->Liskov Substitutional  Principle
 I-->Interface Segregation Principle
-D-->Dependency Inversion Principle    .
+D-->Dependency Inversion Principle.
